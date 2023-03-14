@@ -1,0 +1,24 @@
+# This file is maintained automatically by "terraform init".
+# Manual edits may be lost in future updates.
+
+provider "registry.terraform.io/ciscodevnet/cml2" {
+  version = "0.5.3"
+  hashes = [
+    "h1:BjYdcYFzX8h5vsjwsx25ePZFgu/XkevbP+PCMBmG/AE=",
+    "zh:0b41e0a86288f75caf62470524cf1bae6443ae81e38013a421f69660b5cd3911",
+    "zh:1c900904b0b44ab13f87982590f2c605c571b36e89204fe865bcf61f9cde522a",
+    "zh:2ab1bf0c3a298f77d07f5ebb93200e51efbadc7684c936eb44c2cfd330614cca",
+    "zh:6e6f8e4d0bd95570ef1b2b1730e7d3e722351026673d2c342d220b7bf0605a97",
+    "zh:727e9c008e3e03d97cfc0b84502ebe42760827087bccd9d63ce3db09a7c0768f",
+    "zh:77c48b3f9d45ff2f061e0d005c669214b65c70c93c5a9ca3a7d76be08cecad38",
+    "zh:890df766e9b839623b1f0437355032a3c006226a6c200cd911e15ee1a9014e9f",
+    "zh:8dbd334a43ae324c57e47be3b86cfe5a44da08b17d329416beb52082e51eb300",
+    "zh:aefe5539dc62a545e0a534bd07bb9b16504e2ea41ff1778606ee645c22a3ca11",
+    "zh:b6c5274518152d2244a3017150c88da259ac3a70b3c95e0472b88434102a85e3",
+    "zh:be85dc8249bd668ea8db1357c82d5bc0478100fe683d875848af4980b576f5e8",
+    "zh:c954f275297a9c9b9ecb303379b9f34ca23912768e9bc44941494f798c428ded",
+    "zh:cb40a63e60856f6a64e6a6f4a352c86f25a6f5c75275456632d1eb92ae2017ad",
+    "zh:de08d75f69955b100e69b9b706e7614bcdf7705f7ecd71c97bdaa4834d364bed",
+    "zh:dff5a1b6815e58acb8acf3929557d4d251216cca986acc6067a1720d9a75de58",
+  ]
+}

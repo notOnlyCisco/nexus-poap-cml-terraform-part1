@@ -22,3 +22,39 @@ provider "registry.terraform.io/ciscodevnet/cml2" {
     "zh:dff5a1b6815e58acb8acf3929557d4d251216cca986acc6067a1720d9a75de58",
   ]
 }
+
+provider "registry.terraform.io/efficientip-labs/solidserver" {
+  version = "1.1.18"
+  hashes = [
+    "h1:dU+6QWXLBZxjHryvpb4os+YljEkdrDqZt5lfkB5a3Bk=",
+    "zh:3b8319b0ac78fd06ceadf20e3adee4d1e216f2414d258c6a0ba9de4ad8425c95",
+    "zh:3ea7fa8b673c805f5426581155acbbfafd00d6f9a65e4a38436a15efe8773bcd",
+    "zh:41caf14d669330de1dc8cc8b1093b8e1bbe2c8d53063adec66477c933684558d",
+    "zh:69870fe1237f1d94021812dc5d4ee2b75eb07ed0d13c0e090190a67828417aed",
+    "zh:72456317fc85cbcf5e466f28b416c5b592e2c0ec5f4b77685295c4fd29ff6f26",
+    "zh:768745ac4d8e8c415c524647a366756c459c3f6f533fb7599016b3914cbe9d19",
+    "zh:a06df742e6d2c3020792b7ecbf2416addea9862b4ef3c5e7df13f7375e0d71ac",
+  ]
+}
+
+provider "registry.terraform.io/netascode/nxos" {
+  version = "0.3.22"
+  hashes = [
+    "h1:1vzqymEAeJk3QUrGOQ8na2UOL+UAEWtU24X+2g6FmVE=",
+    "zh:0e330f3dac84167d0461e7979f4be8159961752da602a7a844f3d942942a25ad",
+    "zh:2d2943a5138a850e9282496d4b724450ee96cba6f88f8f80784bf6db4b2caa91",
+    "zh:2f058fa65e8c28aeecff6371ca71f383c776a5e286bae4d95aeaabe3ad399917",
+    "zh:4c65f92f9599448c6797675c8e9093605e5e4509a52121416820c234bee4dfe2",
+    "zh:4ea9dbbe69a967b6514f5323498b89bdf5e71d16c847c159a9b87b0b6df18cdf",
+    "zh:56baca325693d63678b6154ca202f1decdb9e5076a55299ffd457f8f2c6a48e6",
+    "zh:7f713f756c84eee4786498ee7371fb5f05b5219728962f93a0ffbe52780d4c7a",
+    "zh:86afc7f80d0478108b89f2e5963d02789c26392888001eba5b335cc8bfd33239",
+    "zh:890df766e9b839623b1f0437355032a3c006226a6c200cd911e15ee1a9014e9f",
+    "zh:cc747db376475213ad2721b3087a93fb666926ceaa8cdf6f4f0a471f9c8f12e9",
+    "zh:d0cb1219bba77a4bbc0b7f5821832eac2bde3cb8ae5323cf0a7d6e17b9131bda",
+    "zh:d49f9538509daf7256dcf54725a9d01c90b4334e1af3dab507242aaf914d7869",
+    "zh:db37ff032f5068219ccd9ab816ee6d35c90b924c12df63469e3051c5b26cd6fc",
+    "zh:dcd59d01a6794ba42f920e51f086b9c0d76af7ea5c319257b3969937512b5e8a",
+    "zh:f0186e66cc7938f33b8adc16052ac55ef6b12c2cf7f37aff9972a7fe3d291429",
+  ]
+}

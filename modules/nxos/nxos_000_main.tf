@@ -8,5 +8,13 @@ terraform {
   }
 }
 
-variable "vlan" {}
-variable "subnet" {}
+variable "vlan" {
+  default = "814"
+}
+variable "subnet" {
+  default = "10.0.14.0"
+}
+
+variable "subnet_mask" {
+  default = 24
+}

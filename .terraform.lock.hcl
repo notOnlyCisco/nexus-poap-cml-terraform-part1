@@ -24,7 +24,8 @@ provider "registry.terraform.io/ciscodevnet/cml2" {
 }
 
 provider "registry.terraform.io/efficientip-labs/solidserver" {
-  version = "1.1.18"
+  version     = "1.1.18"
+  constraints = "1.1.18"
   hashes = [
     "h1:dU+6QWXLBZxjHryvpb4os+YljEkdrDqZt5lfkB5a3Bk=",
     "zh:3b8319b0ac78fd06ceadf20e3adee4d1e216f2414d258c6a0ba9de4ad8425c95",

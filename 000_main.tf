@@ -12,9 +12,12 @@ terraform {
     cml2 = {
       source = "registry.terraform.io/ciscodevnet/cml2"
     }
+    
     solidserver = {
       source = "EfficientIP-Labs/solidserver"
+      version = "1.1.18"
     }
+    
     nxos = {
       source = "netascode/nxos"
     }

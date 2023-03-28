@@ -4,7 +4,7 @@ cml_address  = "https://cml.mgmt.dovetail-lab.ca"
 
 eip_username = "notonlycisco"
 eip_password = "NotOnlyCisco"
-eip_url = "https://eip.mgmt.dovetail-lab.ca"
+eip_url = "eip.mgmt.dovetail-lab.ca"
 
 
 nxos_username = "notonlycisco"

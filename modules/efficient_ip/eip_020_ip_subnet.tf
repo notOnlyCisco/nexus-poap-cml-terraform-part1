@@ -12,10 +12,9 @@ resource "solidserver_ip_subnet" "ip_block" {
 }
 
 resource "solidserver_ip_subnet" "ext_conn" {
-  depends_on = [
-    solidserver_ip_subnet.ip_block
-  ]
+
   space       = solidserver_ip_space.ndfc_space.name
+  block = solidserver_ip_subnet.ip_block.name
   request_ip  = "10.0.14.0"
   prefix_size = 24
   name        = "NDFC Demo"

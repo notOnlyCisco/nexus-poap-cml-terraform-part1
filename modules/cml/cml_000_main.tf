@@ -4,16 +4,21 @@ terraform {
       source = "registry.terraform.io/ciscodevnet/cml2"
     }
   }
-} 
-
-provider "cml2" {
-
-  address     = var.cml_address
-  username    = var.cml_username
-  password    = var.cml_password
-  skip_verify = true
 }
 
-variable "cml_address" {}
-variable "cml_password" {}
-variable "cml_username" {}
+variable "vlan" {}
+variable "subnet" {}
+variable "ip_svi_core01" {}
+variable "ip_svi_core02" {}
+variable "ip_DC-A-Router01-ext_conn" {}
+variable "ip_DC-B-Router01-ext_conn" {}
+variable "ndfc_node01" {}
+variable "ndfc_node02" {}
+variable "ndfc_node03" {}
+variable "core_bgp_as" {}
+variable "dc-a-bgp-as" {}
+variable "dc-b-bgp-as" {}
+variable "dc-a-Router01-p2p-bgw101" {}
+variable "dc-a-Router01-p2p-bgw102" {}
+variable "dc-a-p2p-bgw101_subnet" {}
+variable "dc-a-p2p-bgw102_subnet" {}

@@ -8,13 +8,9 @@ terraform {
   }
 }
 
-variable "vlan" {
-  default = "814"
-}
-variable "subnet" {
-  default = "10.0.14.0"
-}
-
-variable "subnet_mask" {
-  default = 24
-}
+variable "vlan" {}
+variable "subnet" {}
+variable "ip_svi_core01" {}
+variable "ip_svi_core02" {}
+variable "ip_DC-A-Router01-ext_conn" {}
+variable "ip_DC-B-Router01-ext_conn" {}

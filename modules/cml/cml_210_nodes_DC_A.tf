@@ -82,6 +82,43 @@ resource "cml2_node" "DC-A-Router01" {
   tags           = ["dc-a"]
   x              = 200
   y              = 100
+  configuration  = <<-EOT
+    hostname DC-A-Router01
+    username admin privilege 15 secret C!sco123
+    interface gi1
+      ip address ${var.ip_DC-A-Router01-ext_conn} ${cidrnetmask(var.subnet.prefix)}
+      no shut
+      exit
+    interface GigabitEthernet2
+      ip address ${var.dc-a-Router01-p2p-bgw101.address} ${cidrnetmask(var.dc-a-p2p-bgw101_subnet.prefix)}
+      ip helper-address ${var.ndfc_node01}
+      ip helper-address ${var.ndfc_node02}
+      ip helper-address ${var.ndfc_node03}
+      exit
+    interface GigabitEthernet3
+      ip address ${var.dc-a-Router01-p2p-bgw102.address} ${cidrnetmask(var.dc-a-p2p-bgw102_subnet.prefix)}
+      ip helper-address ${var.ndfc_node01}
+      ip helper-address ${var.ndfc_node02}
+      ip helper-address ${var.ndfc_node03}
+      exit
+    
+    line vty 0 4
+      privilege level 15
+      login local
+      transport input ssh
+      exit
+    router bgp ${var.dc-a-bgp-as}
+      bgp log-neighbor-changes
+      neighbor ${var.ip_svi_core01} remote-as ${var.core_bgp_as}
+      neighbor ${var.ip_svi_core02} remote-as ${var.core_bgp_as}
+
+      address-family ipv4
+        redistribute connected
+        redistribute static
+        neighbor ${var.ip_svi_core01} activate
+        neighbor ${var.ip_svi_core02} activate
+    end
+    EOT 
 }
 
 

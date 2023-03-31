@@ -16,7 +16,7 @@ resource "cml2_lifecycle" "ndfc_demo_dc_a" {
     stages          = ["dc-a"]
     start_remaining = false
   }
-  state = "DEFINED_ON_CORE"
+  state = local.dc-a-initial-state
 }
 
  

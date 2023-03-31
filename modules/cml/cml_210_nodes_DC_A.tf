@@ -94,12 +94,14 @@ resource "cml2_node" "DC-A-Router01" {
       ip helper-address ${var.ndfc_node01}
       ip helper-address ${var.ndfc_node02}
       ip helper-address ${var.ndfc_node03}
+      no shut
       exit
     interface GigabitEthernet3
       ip address ${var.dc-a-Router01-p2p-bgw102.address} ${cidrnetmask(var.dc-a-p2p-bgw102_subnet.prefix)}
       ip helper-address ${var.ndfc_node01}
       ip helper-address ${var.ndfc_node02}
       ip helper-address ${var.ndfc_node03}
+      no shut
       exit
     
     line vty 0 4

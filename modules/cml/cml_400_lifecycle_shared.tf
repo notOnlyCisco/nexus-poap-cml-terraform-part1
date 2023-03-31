@@ -9,7 +9,7 @@ resource "cml2_lifecycle" "ndfc_demo_shared" {
     stages          = ["shared"]
     start_remaining = false
   }
-  state = "DEFINED_ON_CORE"
+  state = local.shared_infra-initial-state
 }
 
  

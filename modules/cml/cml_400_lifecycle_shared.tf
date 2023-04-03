@@ -1,4 +1,4 @@
-
+/*
 resource "cml2_lifecycle" "ndfc_demo_shared" {
   lab_id = cml2_lab.ndfc_demo.id
   elements = [
@@ -12,4 +12,4 @@ resource "cml2_lifecycle" "ndfc_demo_shared" {
   state = local.shared_infra-initial-state
 }
 
- 
+ */

@@ -22,3 +22,8 @@ variable "dc-a-Router01-p2p-bgw101" {}
 variable "dc-a-Router01-p2p-bgw102" {}
 variable "dc-a-p2p-bgw101_subnet" {}
 variable "dc-a-p2p-bgw102_subnet" {}
+variable "ndfc_routing_loopback_range" {}
+variable "dc-a-bgw101-p2p-Router01" {}
+variable "dc-a-bgw102-p2p-Router01" {}
+variable "dc-a-bgw101-loopback0" {}
+variable "dc-a-bgw102-loopback0" {}

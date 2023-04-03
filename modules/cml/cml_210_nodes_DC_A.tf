@@ -109,16 +109,32 @@ resource "cml2_node" "DC-A-Router01" {
       login local
       transport input ssh
       exit
+    
+    ip route ${var.dc-a-bgw101-loopback0.address} 255.255.255.255 ${var.dc-a-bgw101-p2p-Router01.address}
+    ip route ${var.dc-a-bgw102-loopback0.address} 255.255.255.255 ${var.dc-a-bgw102-p2p-Router01.address}
+
     router bgp ${var.dc-a-bgp-as}
       bgp log-neighbor-changes
       neighbor ${var.ip_svi_core01} remote-as ${var.core_bgp_as}
       neighbor ${var.ip_svi_core02} remote-as ${var.core_bgp_as}
+      neighbor ${var.dc-a-bgw101-loopback0.address} remote-as ${var.dc-a-bgp-as}
+      neighbor ${var.dc-a-bgw102-loopback0.address} remote-as ${var.dc-a-bgp-as}
 
       address-family ipv4
+      maximum-paths 4
         redistribute connected
         redistribute static
         neighbor ${var.ip_svi_core01} activate
         neighbor ${var.ip_svi_core02} activate
+        neighbor ${var.dc-a-bgw101-loopback0.address} activate
+        neighbor ${var.dc-a-bgw101-loopback0.address} next-hop-self
+        neighbor ${var.dc-a-bgw101-loopback0.address} update-source Gigabit 2
+        neighbor ${var.dc-a-bgw101-loopback0.address} ebgp-multihop 5
+        neighbor ${var.dc-a-bgw102-loopback0.address} activate
+        neighbor ${var.dc-a-bgw102-loopback0.address} next-hop-self
+        neighbor ${var.dc-a-bgw102-loopback0.address} update-source Gigabit 3
+        neighbor ${var.dc-a-bgw102-loopback0.address} ebgp-multihop 5
+
     end
     EOT 
 }

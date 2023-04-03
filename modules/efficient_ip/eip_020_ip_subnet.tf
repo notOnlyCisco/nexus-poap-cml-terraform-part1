@@ -47,3 +47,13 @@ resource "solidserver_ip_subnet" "dc-a-p2p-bgw102_subnet" {
   name        = "${var.lab_name}_dc-a-p2p-bgw102"
   terminal    = true
 }
+
+resource "solidserver_ip_subnet" "ndfc_routing_loopback_range" {
+
+  space       = solidserver_ip_space.ndfc_space.name
+  block       = solidserver_ip_subnet.ip_block.name
+  prefix_size = split("/", var.ndfc_routing_loopback_range)[1]
+  request_ip  = split("/", var.ndfc_routing_loopback_range)[0]
+  name        = "${var.lab_name}_ndfc_routing_loopback_range"
+  terminal    = true
+}

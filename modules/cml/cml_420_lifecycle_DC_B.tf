@@ -1,4 +1,4 @@
-
+/*
 resource "cml2_lifecycle" "ndfc_demo_dc_b" {
   lab_id = cml2_lab.ndfc_demo.id
   elements = [
@@ -17,4 +17,4 @@ resource "cml2_lifecycle" "ndfc_demo_dc_b" {
   state = local.dc-b-initial-state
 }
 
- 
+ */

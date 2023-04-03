@@ -32,10 +32,23 @@ output "dc-a-Router01-p2p-bgw102" {
   value = solidserver_ip_address.dc-a-Router01-p2p-bgw102
 }
 
+output "dc-a-bgw101-p2p-Router01" {
+  value = solidserver_ip_address.dc-a-bgw101-p2p-Router01
+}
+output "dc-a-bgw102-p2p-Router01" {
+  value = solidserver_ip_address.dc-a-bgw102-p2p-Router01
+}
+
 output "dc-a-p2p-bgw101_subnet" {
   value = solidserver_ip_subnet.dc-a-p2p-bgw101_subnet
 }
 
 output "dc-a-p2p-bgw102_subnet" {
   value = solidserver_ip_subnet.dc-a-p2p-bgw102_subnet
+}
+output "dc-a-bgw101-loopback0" {
+  value = solidserver_ip_address.dc-a-bgw101-loopback0
+}
+output "dc-a-bgw102-loopback0" {
+  value = solidserver_ip_address.dc-a-bgw102-loopback0
 }

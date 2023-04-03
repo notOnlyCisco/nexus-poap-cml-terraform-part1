@@ -10,10 +10,12 @@ resource "cml2_lifecycle" "ndfc_demo_dc_a" {
     cml2_node.DC-A-Leaf104.id,
     cml2_node.DC-A-BGW101.id,
     cml2_node.DC-A-BGW102.id,
-    cml2_node.DC-A-Router01.id
+    cml2_node.DC-A-Router01.id,
+    cml2_node.EXT_CON.id,
+    cml2_node.L2_SW_EXT_CON.id
   ]
   staging = {
-    stages          = ["dc-a"]
+    stages          = ["shared", "dc-a"]
     start_remaining = false
   }
   state = local.dc-a-initial-state

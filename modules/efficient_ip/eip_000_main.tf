@@ -12,3 +12,4 @@ variable "lab_name" {}
 variable "ndfc_routing_loopback_range" {}
 variable "ndfc_vtep_loopback_range" {}
 variable "ndfc_underlay_range" {}
+variable "fabric_info" {}

@@ -16,5 +16,5 @@ resource "cml2_node" "EXT_CON" {
   tags           = ["shared"]
   x              = 600
   y              = 200
-  configuration  = "bridge${var.vlan}"
+  configuration  = "bridge${var.ddi_info.ext_conn_vlan_id.vlan_id}"
 }

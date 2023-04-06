@@ -4,9 +4,9 @@ resource "solidserver_vlan_domain" "ndfc_demo" {
 
 
 
-resource "solidserver_vlan" "l3_ext_conn" {
+resource "solidserver_vlan" "l3_ext_conn_vlan_id" {
   vlan_domain = solidserver_vlan_domain.ndfc_demo.name
   name        = "${var.lab_name}_Ext_conn"
-  request_id  = "814"
+  request_id  = var.fabric_info["CORE"].vlan_id
 }
 

@@ -86,21 +86,21 @@ resource "cml2_node" "DC-A-Router01" {
     hostname DC-A-Router01
     username admin privilege 15 secret C!sco123
     interface gi1
-      ip address ${var.ip_DC-A-Router01-ext_conn} ${cidrnetmask(var.subnet.prefix)}
+      ip address ${var.ddi_info.dc-a-router01-ext_conn_ip.address} ${cidrnetmask(var.ddi_info.ext_conn_subnet.prefix)}
       no shut
       exit
     interface GigabitEthernet2
-      ip address ${var.dc-a-Router01-p2p-bgw101.address} ${cidrnetmask(var.dc-a-p2p-bgw101_subnet.prefix)}
-      ip helper-address ${var.ndfc_node01}
-      ip helper-address ${var.ndfc_node02}
-      ip helper-address ${var.ndfc_node03}
+      ip address ${var.ddi_info.dc-a-Router01-p2p-bgw101.address} ${cidrnetmask(var.ddi_info.dc-a-bgw101-router01_p2p_subnet.prefix)}
+      ip helper-address ${var.fabric_info["NDFC"].ndfc_node01}
+      ip helper-address ${var.fabric_info["NDFC"].ndfc_node02}
+      ip helper-address ${var.fabric_info["NDFC"].ndfc_node03}
       no shut
       exit
     interface GigabitEthernet3
-      ip address ${var.dc-a-Router01-p2p-bgw102.address} ${cidrnetmask(var.dc-a-p2p-bgw102_subnet.prefix)}
-      ip helper-address ${var.ndfc_node01}
-      ip helper-address ${var.ndfc_node02}
-      ip helper-address ${var.ndfc_node03}
+      ip address ${var.ddi_info.dc-a-Router01-p2p-bgw102.address} ${cidrnetmask(var.ddi_info.dc-a-bgw102-router01_p2p_subnet.prefix)}
+      ip helper-address ${var.fabric_info["NDFC"].ndfc_node01}
+      ip helper-address ${var.fabric_info["NDFC"].ndfc_node02}
+      ip helper-address ${var.fabric_info["NDFC"].ndfc_node03}
       no shut
       exit
     
@@ -110,30 +110,30 @@ resource "cml2_node" "DC-A-Router01" {
       transport input ssh
       exit
     
-    ip route ${var.dc-a-bgw101-loopback0.address} 255.255.255.255 ${var.dc-a-bgw101-p2p-Router01.address}
-    ip route ${var.dc-a-bgw102-loopback0.address} 255.255.255.255 ${var.dc-a-bgw102-p2p-Router01.address}
+    ip route ${var.ddi_info.dc-a-bgw101-loopback0.address} 255.255.255.255 ${var.ddi_info.dc-a-bgw101-p2p-Router01.address}
+    ip route ${var.ddi_info.dc-a-bgw102-loopback0.address} 255.255.255.255 ${var.ddi_info.dc-a-bgw102-p2p-Router01.address}
 
-    router bgp ${var.dc-a-bgp-as}
+    router bgp ${var.fabric_info["POAP"]. dc-a-router-bgp-as}
       bgp log-neighbor-changes
-      neighbor ${var.ip_svi_core01} remote-as ${var.core_bgp_as}
-      neighbor ${var.ip_svi_core02} remote-as ${var.core_bgp_as}
-      neighbor ${var.dc-a-bgw101-loopback0.address} remote-as ${var.dc-a-bgp-as}
-      neighbor ${var.dc-a-bgw102-loopback0.address} remote-as ${var.dc-a-bgp-as}
+      neighbor ${var.ddi_info.core01_svi_ip.address} remote-as ${var.fabric_info["CORE"].core_bgp_as}
+      neighbor ${var.ddi_info.core02_svi_ip.address} remote-as ${var.fabric_info["CORE"].core_bgp_as}
+      neighbor ${var.ddi_info.dc-a-bgw101-loopback0.address} remote-as ${var.fabric_info["POAP"].dc-a-bgp-as}
+      neighbor ${var.ddi_info.dc-a-bgw102-loopback0.address} remote-as ${var.fabric_info["POAP"].dc-a-bgp-as}
 
       address-family ipv4
       maximum-paths 4
         redistribute connected
         redistribute static
-        neighbor ${var.ip_svi_core01} activate
-        neighbor ${var.ip_svi_core02} activate
-        neighbor ${var.dc-a-bgw101-loopback0.address} activate
-        neighbor ${var.dc-a-bgw101-loopback0.address} next-hop-self
-        neighbor ${var.dc-a-bgw101-loopback0.address} update-source Gigabit 2
-        neighbor ${var.dc-a-bgw101-loopback0.address} ebgp-multihop 5
-        neighbor ${var.dc-a-bgw102-loopback0.address} activate
-        neighbor ${var.dc-a-bgw102-loopback0.address} next-hop-self
-        neighbor ${var.dc-a-bgw102-loopback0.address} update-source Gigabit 3
-        neighbor ${var.dc-a-bgw102-loopback0.address} ebgp-multihop 5
+        neighbor ${var.ddi_info.core01_svi_ip.address} activate
+        neighbor ${var.ddi_info.core02_svi_ip.address} activate
+        neighbor ${var.ddi_info.dc-a-bgw101-loopback0.address} activate
+        neighbor ${var.ddi_info.dc-a-bgw101-loopback0.address} next-hop-self
+        neighbor ${var.ddi_info.dc-a-bgw101-loopback0.address} update-source Gigabit 2
+        neighbor ${var.ddi_info.dc-a-bgw101-loopback0.address} ebgp-multihop 5
+        neighbor ${var.ddi_info.dc-a-bgw102-loopback0.address} activate
+        neighbor ${var.ddi_info.dc-a-bgw102-loopback0.address} next-hop-self
+        neighbor ${var.ddi_info.dc-a-bgw102-loopback0.address} update-source Gigabit 3
+        neighbor ${var.ddi_info.dc-a-bgw102-loopback0.address} ebgp-multihop 5
 
     end
     EOT 

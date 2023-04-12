@@ -17,7 +17,7 @@ module "cml" {
   source      = "./modules/cml"
   ddi_info    = module.efficient_ip.ddi_info
   fabric_info = var.fabric_info
-    lab_name    = local.lab_name
+  lab_name    = local.lab_name
 }
 
 module "nxos" {
@@ -28,8 +28,8 @@ module "nxos" {
     nxos.core02 = nxos.core02
 
   }
-  ddi_info = module.efficient_ip.ddi_info
-    fabric_info = var.fabric_info
+  ddi_info    = module.efficient_ip.ddi_info
+  fabric_info = var.fabric_info
 
 
 

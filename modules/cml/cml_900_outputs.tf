@@ -1,3 +1,20 @@
+output "cml_seed_switches" {
+  value = { 
+    DC-A-BGW101 = {
+      hostname = cml2_node.DC-A-BGW101.label
+      ipAddress = var.ddi_info.dc-a-bgw101-loopback0
+      password = var.fabric_info["POAP"].password
+      dhcpBootstrapIP = var.ddi_info.dc-a-bgw101-p2p-Router01
+    },
+    DC-A-BGW102 = {
+      hostname = cml2_node.DC-A-BGW102.label
+      ipAddress = var.ddi_info.dc-a-bgw102-loopback0
+      password = var.fabric_info["POAP"].password
+      dhcpBootstrapIP = var.ddi_info.dc-a-bgw102-p2p-Router01
+    }
+  }
+}
+
 /*
 output "dc-a-BGW101-loopback_ip" {
   value = var.dc-a-bgw101-loopback0

@@ -56,6 +56,9 @@ variable "fabric_info" {
       dc-a-bgp-as                 = 65110
       dc-a-router-bgp-as          = 65101
       dc-b-bgp-as                 = 65111
+      password                    = "C!sco123"
+      discoveryUsername           = "admin"
+      discoveryPassword           = "C!sco123"
     }
 
   }

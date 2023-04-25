@@ -15,3 +15,5 @@ nxos_core02   = "https://10.0.0.253"
 ndfc_username = "notonlycisco"
 ndfc_password = "C!sco123"
 ndfc_url      = "https://ndfc.mgmt.dovetail-lab.ca"
+
+TFE_PARALLELISM = 1

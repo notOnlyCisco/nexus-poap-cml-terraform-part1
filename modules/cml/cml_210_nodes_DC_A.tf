@@ -117,8 +117,8 @@ resource "cml2_node" "DC-A-Router01" {
       bgp log-neighbor-changes
       neighbor ${var.ddi_info.core01_svi_ip.address} remote-as ${var.fabric_info["CORE"].core_bgp_as}
       neighbor ${var.ddi_info.core02_svi_ip.address} remote-as ${var.fabric_info["CORE"].core_bgp_as}
-      neighbor ${var.ddi_info.dc-a-bgw101-loopback0.address} remote-as ${var.fabric_info["POAP"].dc-a-bgp-as}
-      neighbor ${var.ddi_info.dc-a-bgw102-loopback0.address} remote-as ${var.fabric_info["POAP"].dc-a-bgp-as}
+      neighbor ${var.ddi_info.dc-a-bgw101-p2p-Router01.address} remote-as ${var.fabric_info["POAP"].dc-a-bgp-as}
+      neighbor ${var.ddi_info.dc-a-bgw102-p2p-Router01.address} remote-as ${var.fabric_info["POAP"].dc-a-bgp-as}
 
       address-family ipv4
       maximum-paths 4
@@ -126,14 +126,12 @@ resource "cml2_node" "DC-A-Router01" {
         redistribute static
         neighbor ${var.ddi_info.core01_svi_ip.address} activate
         neighbor ${var.ddi_info.core02_svi_ip.address} activate
-        neighbor ${var.ddi_info.dc-a-bgw101-loopback0.address} activate
-        neighbor ${var.ddi_info.dc-a-bgw101-loopback0.address} next-hop-self
-        neighbor ${var.ddi_info.dc-a-bgw101-loopback0.address} update-source Gigabit 2
-        neighbor ${var.ddi_info.dc-a-bgw101-loopback0.address} ebgp-multihop 5
-        neighbor ${var.ddi_info.dc-a-bgw102-loopback0.address} activate
-        neighbor ${var.ddi_info.dc-a-bgw102-loopback0.address} next-hop-self
-        neighbor ${var.ddi_info.dc-a-bgw102-loopback0.address} update-source Gigabit 3
-        neighbor ${var.ddi_info.dc-a-bgw102-loopback0.address} ebgp-multihop 5
+        neighbor ${var.ddi_info.dc-a-bgw101-p2p-Router01.address} activate
+        neighbor ${var.ddi_info.dc-a-bgw101-p2p-Router01.address} next-hop-self
+        neighbor ${var.ddi_info.dc-a-bgw101-p2p-Router01.address} update-source Gigabit 2
+        neighbor ${var.ddi_info.dc-a-bgw102-p2p-Router01.address} activate
+        neighbor ${var.ddi_info.dc-a-bgw102-p2p-Router01.address} next-hop-self
+        neighbor ${var.ddi_info.dc-a-bgw102-p2p-Router01.address} update-source Gigabit 3
 
     end
     EOT 

@@ -1,8 +1,6 @@
 output "seed_switches" {
   value = <<-EOT
   // Copy from the line below
-  seed_switches = 
-    {
       "DC-A-BGW101": {
         "dhcpBootstrapIP": "${module.efficient_ip.ddi_info.dc-a-bgw101-p2p-Router01.address}",
         "hostname": "${module.cml.cml_seed_switches["DC-A-BGW101"].hostname}",
@@ -17,8 +15,7 @@ output "seed_switches" {
         "password": "${var.fabric_info["POAP"].password}",
         "gateway": "${module.efficient_ip.ddi_info.dc-a-Router01-p2p-bgw102.address}/${split("/", module.efficient_ip.ddi_info.dc-a-bgw102-router01_p2p_subnet.prefix)[1]}"
       }
-    }
-  //until the line bove
+  //until the line above
   EOT
 }
 /*

@@ -1,5 +1,5 @@
 resource "cml2_lab" "ndfc_demo" {
-  title       = "NDFC Demo"
+  title       = local.project_title
   description = "NDFC Lab created using Terraform"
   notes       = <<-EOT
   # Heading

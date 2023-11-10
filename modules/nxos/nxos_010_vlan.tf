@@ -10,3 +10,4 @@ resource "nxos_bridge_domain" "ndfc_demo_ext_conn_core02" {
 }
 
 
+
